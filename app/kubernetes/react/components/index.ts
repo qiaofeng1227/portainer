@@ -9,9 +9,9 @@ import { CreateNamespaceRegistriesSelector } from '@/react/kubernetes/namespaces
 import { KubeApplicationAccessPolicySelector } from '@/react/kubernetes/applications/CreateView/KubeApplicationAccessPolicySelector';
 import { KubeApplicationDeploymentTypeSelector } from '@/react/kubernetes/applications/CreateView/KubeApplicationDeploymentTypeSelector';
 import { ApplicationSummaryWidget } from '@/react/kubernetes/applications/DetailsView';
-import { withReactQuery } from '@/react-tools/withReactQuery';
 import { withUIRouter } from '@/react-tools/withUIRouter';
-import { withUserProvider } from '@/react/test-utils/withUserProvider';
+import { ApplicationsStacksDatatable } from '@/react/kubernetes/applications/ListView/ApplicationsStacksDatatable';
+import { withCurrentUser } from '@/react-tools/withCurrentUser';
 
 export const componentsModule = angular
   .module('portainer.kubernetes.react.components', [])
@@ -89,8 +89,16 @@ export const componentsModule = angular
   )
   .component(
     'applicationSummaryWidget',
-    r2a(
-      withUIRouter(withReactQuery(withUserProvider(ApplicationSummaryWidget))),
-      []
-    )
+    r2a(withUIRouter(withCurrentUser(ApplicationSummaryWidget)), [])
+  )
+  .component(
+    'reactKubernetesApplicationsStacksDatatable',
+    r2a(withUIRouter(withCurrentUser(ApplicationsStacksDatatable)), [
+      'dataset',
+      'onRefresh',
+      'onRemove',
+      'namespace',
+      'namespaces',
+      'onNamespaceChange',
+    ])
   ).name;
