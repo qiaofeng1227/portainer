@@ -19,8 +19,10 @@ import { BetaAlert } from '@/react/portainer/environments/update-schedules/commo
 import { ImagesDatatable } from '@/react/docker/images/ListView/ImagesDatatable/ImagesDatatable';
 import { EventsDatatable } from '@/react/docker/events/EventsDatatables';
 
+import { containersModule } from './containers';
+
 const ngModule = angular
-  .module('portainer.docker.react.components', [])
+  .module('portainer.docker.react.components', [containersModule])
   .component('dockerfileDetails', r2a(DockerfileDetails, ['image']))
   .component('dockerHealthStatus', r2a(HealthStatus, ['health']))
   .component(
