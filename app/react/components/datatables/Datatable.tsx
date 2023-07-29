@@ -27,14 +27,14 @@ import { DatatableFooter } from './DatatableFooter';
 import { defaultGetRowId } from './defaultGetRowId';
 import { Table } from './Table';
 import { useGoToHighlightedRow } from './useGoToHighlightedRow';
-import { BasicTableSettings } from './types';
+import { BasicTableSettings, DefaultType } from './types';
 import { DatatableContent } from './DatatableContent';
 import { createSelectColumn } from './select-column';
 import { TableRow } from './TableRow';
 import { type TableState as GlobalTableState } from './useTableState';
 
 export interface Props<
-  D extends Record<string, unknown>,
+  D extends DefaultType,
   TMeta extends TableMeta<D> = TableMeta<D>
 > extends AutomationTestingProps {
   dataset: D[];
@@ -63,7 +63,7 @@ export interface Props<
 }
 
 export function Datatable<
-  D extends Record<string, unknown>,
+  D extends DefaultType,
   TMeta extends TableMeta<D> = TableMeta<D>
 >({
   columns,
@@ -198,7 +198,7 @@ export function Datatable<
   }
 }
 
-function defaultRenderRow<D extends Record<string, unknown>>(
+function defaultRenderRow<D extends DefaultType>(
   row: Row<D>,
   highlightedItemId?: string
 ) {
@@ -212,7 +212,7 @@ function defaultRenderRow<D extends Record<string, unknown>>(
   );
 }
 
-function getIsSelectionEnabled<D extends Record<string, unknown>>(
+function getIsSelectionEnabled<D extends DefaultType>(
   disabledSelect?: boolean,
   isRowSelectable?: Props<D>['isRowSelectable']
 ) {

@@ -3,14 +3,15 @@ import { ReactNode } from 'react';
 
 import { ExpandableDatatableTableRow } from './ExpandableDatatableRow';
 import { Datatable, Props as DatatableProps } from './Datatable';
+import { DefaultType } from './types';
 
-interface Props<D extends Record<string, unknown>>
+interface Props<D extends DefaultType>
   extends Omit<DatatableProps<D>, 'renderRow' | 'expandable'> {
   renderSubRow(row: Row<D>): ReactNode;
   expandOnRowClick?: boolean;
 }
 
-export function ExpandableDatatable<D extends Record<string, unknown>>({
+export function ExpandableDatatable<D extends DefaultType>({
   renderSubRow,
   getRowCanExpand = () => true,
   expandOnRowClick,
