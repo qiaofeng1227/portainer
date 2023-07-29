@@ -22,7 +22,6 @@ import { ConfigsDatatable } from '@/react/docker/configs/ListView/ConfigsDatatab
 import { AgentHostBrowser } from '@/react/docker/host/BrowseView/AgentHostBrowser';
 import { AgentVolumeBrowser } from '@/react/docker/volumes/BrowseView/AgentVolumeBrowser';
 import { StacksDatatable } from '@/react/docker/stacks/ListView/StacksDatatable/StacksDatatable';
-import { withUserProvider } from '@/react/test-utils/withUserProvider';
 
 const ngModule = angular
   .module('portainer.docker.react.components', [])
@@ -126,9 +125,9 @@ const ngModule = angular
   )
   .component(
     'reactDockerStacksDatatable',
-    r2a(withUIRouter(withUserProvider(StacksDatatable)), [
+    r2a(withUIRouter(withCurrentUser(StacksDatatable)), [
       'dataset',
-      // 'isImageNotificationEnabled',
+      'isImageNotificationEnabled',
       'onReload',
       'onRemove',
     ])
