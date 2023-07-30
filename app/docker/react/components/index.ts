@@ -124,7 +124,7 @@ const ngModule = angular
     ])
   )
   .component(
-    'reactDockerStacksDatatable',
+    'dockerStacksDatatable',
     r2a(withUIRouter(withCurrentUser(StacksDatatable)), [
       'dataset',
       'isImageNotificationEnabled',
