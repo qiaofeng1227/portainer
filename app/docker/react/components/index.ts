@@ -21,7 +21,7 @@ import { EventsDatatable } from '@/react/docker/events/EventsDatatables';
 import { ConfigsDatatable } from '@/react/docker/configs/ListView/ConfigsDatatable';
 import { AgentHostBrowser } from '@/react/docker/host/BrowseView/AgentHostBrowser';
 import { AgentVolumeBrowser } from '@/react/docker/volumes/BrowseView/AgentVolumeBrowser';
-import { StacksDatatable } from '@/react/docker/stacks/ListView/StacksDatatable/StacksDatatable';
+import { StacksDatatable } from '@/react/docker/stacks/ListView/StacksDatatable';
 
 const ngModule = angular
   .module('portainer.docker.react.components', [])
